@@ -11,7 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class ThirdTCAddToCartAllItems {
+public class ThirdTCAddToCartAllItemsTest {
     String homePage = "http://awful-valentine.com/";
     String cartPage = "http://awful-valentine.com/store/cart/";
     private WebDriver driver;

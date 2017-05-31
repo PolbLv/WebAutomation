@@ -10,7 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 
-public class SecondTCVerifyIfButtonAddCartAddAllItems {
+public class SecondTCVerifyIfButtonAddCartAddAllItemsTest {
 
     String homePage = "http://awful-valentine.com/";
     String expectedPrice;
@@ -21,11 +21,9 @@ public class SecondTCVerifyIfButtonAddCartAddAllItems {
 
     @Test
     public void testAddToCartSecondItem() {
-<<<<<<< HEAD
+
         System.setProperty("webdriver.chrome.driver", "//Users//Serhiy//SeleniumWebDrivers//chromedriver");
-=======
-        System.setProperty("webdriver.chrome.driver", "//Users//Serhiy//ChromeDriver//chromedriver");
->>>>>>> d7633b21a7fa89445cc78a3e0b57579636c6d956
+
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 8);
         driver.get(homePage);

@@ -9,7 +9,7 @@ import com.github.javafaker.Faker;
 import com.valentine.app.AwfulValentine;
 import com.valentine.app.HomePage;
 
-public class FourthTCVersion2TypeComment {
+public class FourthTCVersion2TypeCommentTest {
 	private HomePage onHomePage;
 	
 	
