@@ -16,9 +16,7 @@ public class AddItemToCartTest {
 	public void testTheAddCartButtonOpensPopup() {
 <<<<<<< HEAD
 		System.setProperty("webdriver.chrome.driver", "//Users//Serhiy//SeleniumWebDrivers//chromedriver");
-=======
-		System.setProperty("webdriver.chrome.driver", "//Users//Serhiy//ChromeDriver//chromedriver");
->>>>>>> d7633b21a7fa89445cc78a3e0b57579636c6d956
+
 		driver = new ChromeDriver();
 		driver.get("http://awful-valentine.com/");
 
