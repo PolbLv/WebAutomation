@@ -1,0 +1,16 @@
+.classpath
+.project
+.settings
+.settings/
+bin
+test-output/
+target/
+chromedriver.exe
+chromedriver
+geckodriver.exe
+geckodriver
+/target/
+/test-output/
+.settings
+.settings/
+
