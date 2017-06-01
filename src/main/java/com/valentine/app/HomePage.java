@@ -38,8 +38,31 @@ public class HomePage {
 		new WebDriverWait(driver, 10).until(urlToBe("http://awful-valentine.com/"));
 		PageFactory.initElements(driver, this);
 	}
+	
+	@Step("fillNameField")
+	public HomePage fillNameField(String name) {
+		driver.findElement(By.id("author")).sendKeys(name);
+		return this;
+	}
+	@Step("fillEmailField")
+	public HomePage fillEmailField(String email) {
+		driver.findElement(By.cssSelector("email")).sendKeys(email);
+		return this;
+	}
+	
+	@Step("clickToRatingStars")
+	public HomePage clickToRatingStars() {
+		driver.findElement((By.xpath("//*[@id='et-rating']/div/span/div[3]"))).click();
+		return this;
+	}
+	@Step("fillCommentsField")
+	public HomePage fillCommentsField(String comment){
+		driver.findElement((By.id("comment"))).sendKeys(comment);
+		return this;
+	}
 
-	public ShoppingCartPage addToCartSpecialOffer(int position) {
+	
+		public ShoppingCartPage addToCartSpecialOffer(int position) {
 		clickAddToCartOnSpecialOffer(position);
 		clickAddToCartButtonOnPopup();
 		return new ShoppingCartPage(driver);
@@ -67,6 +90,7 @@ public class HomePage {
 		specialOfferInfo.findElement(By.cssSelector(".more-info")).click();
 		return this;
 	}
+	
 
 	// private List<WebElement> specialOffers() {
 	// return driver.findElements(By.cssSelector(".special-item"));

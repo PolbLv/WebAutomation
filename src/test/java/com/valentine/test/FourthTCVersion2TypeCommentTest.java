@@ -11,41 +11,35 @@ import org.testng.annotations.Test;
 import com.github.javafaker.Faker;
 import com.valentine.app.AwfulValentine;
 import com.valentine.app.HomePage;
+
 import com.valentine.data.FakerData;
 
 public class FourthTCVersion2TypeCommentTest {
 	private HomePage onHomePage;
-	
+
 	private WebDriver driver;
-	private FakerData faker;
+	private FakerData faker = new FakerData();
+
 	@Test
 	public void testClickMoreInfoAndOpensItemsPage() {
 		onHomePage = AwfulValentine.openHomePage();
 		onHomePage.clickMoreInfoOnSpecialOffer(5);
 	}
-	
+
 	@Test(dependsOnMethods = "testClickMoreInfoAndOpensItemsPage")
 	public void testFillFields() {
-		waitFor(2000);
-//		faker.fillNameField();
-//		driver.findElement(By.id("author")).sendKeys("Fadad");
-		faker.fillEmailField("");
-		faker.fillWebSiteField("");
-		faker.clickToRatingStars();
-		faker.fillCommentField();
-		onHomePage.clickSubmitButton();
+
+		String name = faker.getName();
+		onHomePage.fillNameField(name);
+
+		String email = faker.getEmail();
+		onHomePage.fillEmailField(email);
+
 	}
 
 	@AfterClass
 	public void tearDown() {
 		AwfulValentine.close();
-	}
-	  private void waitFor(int milliseconds) {
-	        try {
-			Thread.sleep(milliseconds);
-		} catch (Exception e) {
-
-		}
 	}
 
 }

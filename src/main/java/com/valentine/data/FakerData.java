@@ -11,7 +11,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class FakerData {
 	
 	
-	private WebDriver driver; 
+	
 	Faker faker = new Faker();
 	
 //	public static void main(String[] args) {
@@ -20,33 +20,29 @@ public class FakerData {
 //		System.out.println(name);
 //	}
 	
-	@Step("fill name field")
-	public void fillNameField() {
+	@Step("getFieldName")
+	public String getName() {
 		String name = faker.name().fullName();
-		driver.findElement(By.id("author")).sendKeys(name);
+		return name;
 		
 	}
-	@Step("fillEmailField")
-	public void fillEmailField(String text) {
-		String email = faker.internet().emailAddress();
-		driver.findElement(By.id("email")).sendKeys(email);
-
+	@Step("getEmailField")
+	public String getEmail() {
+		 String email = faker.internet().emailAddress();
+		 return email;
+		
 	}
-	@Step("fillWebSiteField")
-	public void fillWebSiteField(String text) {
+	@Step("getWebSite")
+	public String getWebSite () {
 		String webSite =  faker.internet().url();
-		driver.findElement(By.id("url")).sendKeys(webSite);
-
+		return webSite;
+	
 	}
-	@Step("clickToRatingStars")
-	public void clickToRatingStars() {
-		driver.findElement((By.xpath("//*[@id='et-rating']/div/span/div[3]"))).click();
-		
-	}
-
-	public void fillCommentField() {
+	
+	@Step ("getCatchPhrasse")
+	public String fillCommentField() {
 		String comment = faker.company().catchPhrase();
-		driver.findElement((By.id("comment"))).sendKeys(comment);		
+		return comment;	
 	}
 	
 }
