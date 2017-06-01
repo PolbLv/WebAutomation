@@ -115,28 +115,6 @@ public class HomePage {
 		return driver.getCurrentUrl();
 	}
 
-	public void fillNameField(String text) {
-		driver.findElement(By.id("author")).sendKeys(text);
-
-	}
-
-	public void fillEmailField(String text) {
-		driver.findElement(By.id("email")).sendKeys(text);
-
-	}
-
-	public void fillWebSiteField(String text) {
-		driver.findElement(By.id("url")).sendKeys(text);
-
-	}
-
-	// public void fakerName(String text){
-	// String firstName = faker.name().firstName(); // Emory
-	// }
-	public void clickToRatingStars() {
-		driver.findElement((By.xpath("//*[@id='et-rating']/div/span/div[4]"))).click();
-
-	}
 
 	public void clickSubmitButton() {
 		driver.findElement(By.id("submit")).click();

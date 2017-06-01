@@ -20,22 +20,24 @@ public class FourthTCTypeCommentTest {
 		System.setProperty("webdriver.chrome.driver", "//Users//Serhiy//SeleniumWebDrivers//chromedriver");
 		driver = new ChromeDriver();
 		driver.get(homePage);
-		wait = new WebDriverWait(driver, 5);
+		wait = new WebDriverWait(driver, 8);
 	}
 
 	@Test
 	public void openItemAndFillFields() {
+		
+
 		driver.findElement(By.cssSelector("#slides > div:nth-child(2) > div.featured-image")).click();
 
-		driver.findElement(By.id("author")).sendKeys("FHddwefd");
+		driver.findElement(By.id("author")).sendKeys("Fadad");
 
-		driver.findElement(By.id("email")).sendKeys("fdqA@gmail.com");
+		driver.findElement(By.id("email")).sendKeys("dasqA@gmail.com");
 
-		driver.findElement(By.id("url")).sendKeys("www.commentdqdqd.com");
+		driver.findElement(By.id("url")).sendKeys("www.commasdentdqdqd.com");
 
-		driver.findElement((By.xpath("//*[@id='et-rating']/div/span/div[4]"))).click();
+		driver.findElement((By.xpath("//*[@id='et-rating']/div/span/div[3]"))).click();
 
-		driver.findElement((By.id("comment"))).sendKeys("This is my first comment and I agitated =)))");
+		driver.findElement((By.id("comment"))).sendKeys("This)))");
 
 		driver.findElement(By.id("submit")).click();
 
