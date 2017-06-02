@@ -14,6 +14,7 @@ import ru.yandex.qatools.allure.annotations.Attachment;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.List;
+import java.util.Random;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.urlToBe;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
@@ -25,9 +26,13 @@ public class HomePage {
 
 	@FindBy(css = ".special-item")
 	private List<WebElement> specialOffers;
+	
 
 	@FindBy(id = "fancybox-wrap")
 	private WebElement addToCartPopup;
+	
+	@FindBy(css = ".star-rating")
+	private List<WebElement> ratingStars;
 
 	private WebDriver driver;
 
@@ -55,11 +60,6 @@ public class HomePage {
 		return this;
 	}
 	
-	@Step("clickToRatingStars")
-	public HomePage clickToRatingStars() {
-		driver.findElement((By.xpath("//*[@id='et-rating']/div/span/div[3]"))).click();
-		return this;
-	}
 	@Step("fillCommentsField")
 	public HomePage fillCommentsField(String comment){
 		driver.findElement((By.id("comment"))).sendKeys(comment);
@@ -70,26 +70,33 @@ public class HomePage {
 		driver.findElement(By.name("submit")).click();
 		return this;
 	}
-
 	
+/*
+ * 
+ * For test comment "Error message"
+ * */
+//	@Step("getErrorMessage")
+//	public HomePage getErrorMessage(){
+//	String errorMessage = driver.findElement(By.id("error-page")).getText();
+//	return this;
+//	}
 		public ShoppingCartPage addToCartSpecialOffer(int position) {
 		clickAddToCartOnSpecialOffer(position);
 		clickAddToCartButtonOnPopup();
 		return new ShoppingCartPage(driver);
 	}
 
-	public ShoppingCartPage addToCartRecentProduct(int position) {
+		public ShoppingCartPage addToCartRecentProduct(int position) {
 		clickCartOnRecentProduct(position);
 		return clickAddToCartButtonOnPopup();
 	}
-
 	/**
 	 * Clicks on 'Add to Cart' button on a special offer found by {@code index}
 	 *
 	 * @param position
 	 *            1-based position in the list
 	 */
-	public HomePage clickAddToCartOnSpecialOffer(int position) {
+	public HomePage clickAddToCartOnSpecialOffer(int position) {		
 		WebElement specialOffer = specialOffers.get(position - 1);
 		specialOffer.findElement(By.cssSelector(".add-to-cart")).click();
 		return this;
@@ -100,8 +107,16 @@ public class HomePage {
 		specialOfferInfo.findElement(By.cssSelector(".more-info")).click();
 		return this;
 	}
+	@Step("clickToRatingStars")
+	public HomePage clickRandomToRatingStars(){
+		Random rn = new Random();
+		int index = rn.nextInt(ratingStars.size())-1;
+		WebElement addRatingStars = ratingStars.get(index);
+		addRatingStars.click();
+		return this; 
+		
+	}
 	
-
 	// private List<WebElement> specialOffers() {
 	// return driver.findElements(By.cssSelector(".special-item"));
 	// }

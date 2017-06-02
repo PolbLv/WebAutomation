@@ -4,6 +4,7 @@ import java.sql.Driver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -38,20 +39,19 @@ public class FourthTCVersion2TypeCommentTest {
 		String webSite = faker.getWebSite();
 		onHomePage.fillWebSiteField(webSite);
 		
-		onHomePage.clickToRatingStars();
+		onHomePage.clickRandomToRatingStars();
 		
 		String comment = faker.getComment();
-		onHomePage.fillCommentsField(comment);
-			
+		onHomePage.fillCommentsField(comment);			
 	}
 	
 	@Test(dependsOnMethods = "testFillFields")
 	public void addSecondCommentWithoutInfo() {
 		
 		onHomePage.clickButtonSubmit();
+		
 	}
 	
-
 	@AfterClass
 	public void tearDown() {
 		AwfulValentine.close();
