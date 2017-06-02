@@ -10,15 +10,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 
 public class FakerData {
 	
-	
-	
 	Faker faker = new Faker();
-	
-//	public static void main(String[] args) {
-//		Faker faker = new Faker();
-//		String  name = faker.name().fullName();
-//		System.out.println(name);
-//	}
 	
 	@Step("getFieldName")
 	public String getName() {
@@ -38,11 +30,11 @@ public class FakerData {
 		return webSite;
 	
 	}
-	
 	@Step ("getCatchPhrasse")
-	public String fillCommentField() {
+	public String getComment() {
 		String comment = faker.company().catchPhrase();
 		return comment;	
 	}
 	
 }
+

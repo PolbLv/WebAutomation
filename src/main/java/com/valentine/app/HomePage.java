@@ -46,7 +46,12 @@ public class HomePage {
 	}
 	@Step("fillEmailField")
 	public HomePage fillEmailField(String email) {
-		driver.findElement(By.cssSelector("email")).sendKeys(email);
+		driver.findElement(By.id("email")).sendKeys(email);
+		return this;
+	}
+	@Step("fillWebSiteField")
+	public HomePage fillWebSiteField(String webSite){
+		driver.findElement(By.id("url")).sendKeys(webSite);
 		return this;
 	}
 	
@@ -60,6 +65,7 @@ public class HomePage {
 		driver.findElement((By.id("comment"))).sendKeys(comment);
 		return this;
 	}
+	
 
 	
 		public ShoppingCartPage addToCartSpecialOffer(int position) {
