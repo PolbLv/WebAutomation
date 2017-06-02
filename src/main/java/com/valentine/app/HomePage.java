@@ -65,7 +65,11 @@ public class HomePage {
 		driver.findElement((By.id("comment"))).sendKeys(comment);
 		return this;
 	}
-	
+	@Step("clickButtonSubmit")
+	public HomePage clickButtonSubmit(){
+		driver.findElement(By.name("submit")).click();
+		return this;
+	}
 
 	
 		public ShoppingCartPage addToCartSpecialOffer(int position) {

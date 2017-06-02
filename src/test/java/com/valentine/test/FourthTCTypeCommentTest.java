@@ -39,16 +39,9 @@ public class FourthTCTypeCommentTest {
 
 		driver.findElement((By.id("comment"))).sendKeys("This)))");
 
-		driver.findElement(By.id("submit")).click();
-
 	}
 
-	@Test(dependsOnMethods = "openItemAndFillFields")
-	public void ifUserDuplicatesInfo() {
-		String errorMessageAboutTheSameUser = driver.findElement(By.id("error-page")).getText();
-		Assert.assertEquals(errorMessageAboutTheSameUser,
-				"Duplicate comment detected; it looks as though you’ve already said that!", "IncorrectMessage");
-	}
+	
 
 	@Test(dependsOnMethods = "openItemAndFillFields")
 	public void addSecondCommentWithoutInfo() {
@@ -60,6 +53,13 @@ public class FourthTCTypeCommentTest {
 		System.out.println(errorMessage);
 
 		Assert.assertEquals(errorMessage, "ERROR: please type a comment.", "Incorrect message or Another Error");
+	}
+	
+	@Test(dependsOnMethods = "addSecondCommentWithoutInfo")
+	public void ifUserDuplicatesInfo() {
+		String errorMessageAboutTheSameUser = driver.findElement(By.id("error-page")).getText();
+		Assert.assertEquals(errorMessageAboutTheSameUser,
+				"Duplicate comment detected; it looks as though you’ve already said that!", "IncorrectMessage");
 	}
 
 	@AfterClass

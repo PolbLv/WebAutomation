@@ -16,7 +16,7 @@ import com.valentine.data.FakerData;
 
 public class FourthTCVersion2TypeCommentTest {
 	private HomePage onHomePage;
-
+//	private ProductDetailPage onProductPage;
 	private WebDriver driver;
 	private FakerData faker = new FakerData();
 
@@ -28,10 +28,10 @@ public class FourthTCVersion2TypeCommentTest {
 
 	@Test(dependsOnMethods = "testClickMoreInfoAndOpensItemsPage")
 	public void testFillFields() {
-		waitFor(3000);
+		
 		String name = faker.getName();
 		onHomePage.fillNameField(name);
-		waitFor(3000);
+		
 		String email = faker.getEmail();
 		onHomePage.fillEmailField(email);
 		
@@ -39,24 +39,21 @@ public class FourthTCVersion2TypeCommentTest {
 		onHomePage.fillWebSiteField(webSite);
 		
 		onHomePage.clickToRatingStars();
-		waitFor(2000);
-	
+		
 		String comment = faker.getComment();
 		onHomePage.fillCommentsField(comment);
-		
-		
+			
 	}
+	
+	@Test(dependsOnMethods = "testFillFields")
+	public void addSecondCommentWithoutInfo() {
+		
+		onHomePage.clickButtonSubmit();
+	}
+	
 
 	@AfterClass
 	public void tearDown() {
 		AwfulValentine.close();
 	}
-	private void waitFor(int milliseconds) {
-		try {
-			Thread.sleep(milliseconds);
-		} catch (Exception e) {
-
-		}
-	}
-
 }
