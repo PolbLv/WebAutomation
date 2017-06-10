@@ -41,8 +41,6 @@ public class FourthTCTypeCommentTest {
 
 	}
 
-	
-
 	@Test(dependsOnMethods = "openItemAndFillFields")
 	public void addSecondCommentWithoutInfo() {
 

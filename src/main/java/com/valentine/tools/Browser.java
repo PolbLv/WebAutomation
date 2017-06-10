@@ -8,9 +8,9 @@ import org.openqa.selenium.safari.SafariDriver;
 public class Browser {
 
 	public static WebDriver open() {
-		//System.setProperty("browser", "safari");
-		System.setProperty("webdriver.chrome.driver", "//Users//Serhiy//SeleniumWebDrivers//chromedriver");
-//		System.setProperty("webdriver.firefox.driver", "//Users//Serhiy//SeleniumWebDrivers//geckodriver");
+		System.setProperty("browser","firefox");
+//		System.setProperty("browser", "safari");
+//		System.setProperty("browser", "chrome");
 		
 		String browserName = System.getProperty("browser");
 		
